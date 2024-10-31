@@ -600,9 +600,7 @@ jobs:
           EXISTING_RECORD_CONTENT=$(echo "$EXISTING_RECORD" | jq -r '.content // empty')
 
           if [ -n "$EXISTING_RECORD_ID" ]; then
-            echo "PRIMEROOOOOOOOOOO"
             if [ "$EXISTING_RECORD_CONTENT" != "${{ env.DEPLOY_SERVER }}" ]; then
-              echo "SEGUNDOOOOOOOOOOO"
               curl -X PUT "https://api.cloudflare.com/client/v4/zones/${{ env.CLOUDFLARE_ZONE_ID }}/dns_records/$EXISTING_RECORD_ID" \
               -H "Authorization: Bearer ${{ env.CLOUDFLARE_API_TOKEN }}" \
               -H "Content-Type: application/json" \
