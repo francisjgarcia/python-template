@@ -253,7 +253,7 @@ jobs:
       - name: Load docker image
         run: docker load -i /tmp/docker-image.tar
 
-        - name: Scan Image
+      - name: Scan Image
         id: scan
         uses: anchore/scan-action@v3
         env:
